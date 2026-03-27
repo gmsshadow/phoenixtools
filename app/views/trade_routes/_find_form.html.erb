@@ -1,0 +1,22 @@
+<table class="table">
+<%= form_tag find_trade_routes_path  do %>
+  <tr>
+    <th>
+      Starting System:
+    </th>
+    <td colspan="2">
+      <%= select_tag "start",  options_from_collection_for_select(StarSystem.order('name ASC'), "id", "to_s", params[:start]) %>
+    </td>
+    <td rowspan="2" style="vertical-align: top; ">
+      <%= submit_tag "Filter", :class => 'btn btn-primary' %>
+    </td>
+  </tr>
+    <th>
+      Lifeform? <%=check_box_tag "lifeform", 'yes', params[:lifeform] %>
+    </th>
+    <td>
+      Has stargate keys? <%=check_box_tag "keys", 'yes', params[:keys] %>
+    </td>
+  </tr>
+<% end %>
+</table>
